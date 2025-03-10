@@ -13,8 +13,8 @@ export enum SpreadSheetDirectionType {
 
 export interface SpreadSheetOrder {
     orderBy: SpreadSheetOrderByType;
-    direction: "asc" | "desc";
+    direction: SpreadSheetDirectionType;
 }
 
 export const SpreadSheetOrderBy = Object.values(SpreadSheetOrderByType);
-export const SpreadSheetDirection = Object.keys(SpreadSheetDirectionType);
+export const SpreadSheetDirection = Object.values(SpreadSheetDirectionType);

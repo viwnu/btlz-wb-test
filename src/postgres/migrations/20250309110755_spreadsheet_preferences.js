@@ -1,4 +1,4 @@
-import { SpreadSheetDirection, SpreadSheetOrderBy } from "#prefernces.types.js";
+import { SpreadSheetDirection, SpreadSheetOrderBy } from "#web-server/sheets-prefernces/prefernces.types.js";
 
 /**
  * @param {import("knex").Knex} knex

@@ -3,9 +3,8 @@ import { WriteGoogleSheet } from "#google/write-google-sheet.js";
 import { GetSpreadSheetsPrefernces } from "#postgres/methods/get-sheets-preferences.js";
 import { GetSpreadSheets } from "#postgres/methods/get-spreadsheets.js";
 import { GetStocksArchive } from "#postgres/methods/get-stocks.js";
-import cron from "node-cron";
 
-cron.schedule("* * */1 * *", async () => {
+export const uploadToSheets = async () => {
     console.log("Run upload to spreadsheets...");
     const { order_by: orderBy, direction } = (await GetSpreadSheetsPrefernces())[0];
     const stocks = await GetStocksArchive({ orderBy, direction });
@@ -25,4 +24,4 @@ cron.schedule("* * */1 * *", async () => {
         spreadsSheetsWriteResults.push(writeResult?.status);
     }
     console.log("Upload to spreadsheets finished", spreadsSheetsWriteResults);
-});
+};
