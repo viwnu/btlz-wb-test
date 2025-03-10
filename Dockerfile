@@ -1,5 +1,5 @@
 # your node version
-FROM node:20-alpine AS deps-prod
+FROM node:20 AS deps-prod
 
 WORKDIR /app
 
@@ -13,6 +13,7 @@ RUN npm install --include=dev
 
 COPY . .
 
+RUN ls -la /app/src
 RUN npm run build
 
 FROM node:20-alpine AS prod
