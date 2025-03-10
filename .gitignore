@@ -2,6 +2,3 @@ node_modules
 .local
 .env
 dist
-client_secret*
-white-proxy*
-application_default_credentials*
