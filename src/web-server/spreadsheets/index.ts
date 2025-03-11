@@ -8,7 +8,9 @@ import { DeleteSpreadSheetById } from "#postgres/methods/delete-spreadsheet.js";
 
 export default Router()
     .get("/spreadsheets", async (req, res) => {
-        res.status(200).send(await GetSpreadSheets());
+        const spreadsheets = await GetSpreadSheets()
+        const googleSpreadsheetURL = process.env.GOOGLE_SPREADSHEETS_URL
+        res.status(200).send(spreadsheets.map(({spreadsheet_id}) => googleSpreadsheetURL + spreadsheet_id));
         return;
     })
     .post("/spreadsheets", async (req, res) => {

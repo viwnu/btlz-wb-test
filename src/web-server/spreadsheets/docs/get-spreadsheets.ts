@@ -1,7 +1,7 @@
 export const GetSpreadsheetsDoc = {
     get: {
         summary: "Get Spreadsheets",
-        description: "Used to get the spreadSheets ids",
+        description: "Used to get the spreadSheets links",
         tags: ["SpreadSheets"],
         responses: {
             [200]: {
@@ -11,14 +11,9 @@ export const GetSpreadsheetsDoc = {
                         schema: {
                             type: "array",
                             items: {
-                                type: "object",
-                                properties: {
-                                    spreadsheet_id: {
-                                        type: "string",
-                                        description: "Id of spreadsheets",
-                                        example: "1AKi2ROHj9hXB2HIqWn85buN8bwu5bHtPzOcHo33YFbs",
-                                    },
-                                },
+                                type: "string",
+                                description: "Links to spreadsheets",
+                                example: process.env.GOOGLE_SPREADSHEETS_URL + "1AKi2ROHj9hXB2HIqWn85buN8bwu5bHtPzOcHo33YFbs",
                             },
                         },
                     },
