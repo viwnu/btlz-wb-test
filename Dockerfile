@@ -13,7 +13,6 @@ RUN npm install --include=dev
 
 COPY . .
 
-RUN ls -la /app/src
 RUN npm run build
 
 FROM node:20-alpine AS prod

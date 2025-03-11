@@ -2,9 +2,14 @@ import express from "express";
 import AppRouter from "./router.js";
 import swaggerUI from "swagger-ui-express";
 import { swaggerOptions } from "./config/swagger/index.js";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 const app = express();
-const port = 3000;
+const port = process.env.APP_PORT || 5000;
+
+console.log("APP port: ", process.env.APP_PORT);
 
 export function runServer() {
     app.get("/", (req, res) => {
